@@ -1,4 +1,4 @@
-package com.ec.web.system.system;
+package com.ec.web.system;
 
 import com.ec.common.annotation.Log;
 import com.ec.common.core.controller.BaseController;
