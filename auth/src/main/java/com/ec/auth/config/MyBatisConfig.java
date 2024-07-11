@@ -91,6 +91,21 @@ public class MyBatisConfig {
         return resources.toArray(new Resource[resources.size()]);
     }
 
+    /**
+     * <body>
+     *     <p>
+     *         SqlSessionFactory：生成SqlSession，使用的是工厂模式
+     *     </p>
+     *     <p>
+     *         typeAliases节点：代表com.etc.ssm.entity包下所有的类在MyBatis上下文中可以使用别名去代替全限定名。默认是类名首字母小写<br>
+     *         properties节点：可以引入指定目录下的配置文件xml。
+     *         configLocation：加载mybatis的config配置文件
+     *     </p>
+     * </body>
+     * @param dataSource
+     * @return
+     * @throws Exception
+     */
     @Bean
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
         String typeAliasesPackage = env.getProperty("mybatis.typeAliasesPackage");
