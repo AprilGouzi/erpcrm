@@ -19,7 +19,10 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  *
  * @author ec
  */
+//定义配置类，替换xml文件，基于@Component，意味着配置类自身就是个bean
 @Configuration
+//开启缓存功能，作用于缓存配置类上或者作用于SpringBoot启动类上。
+// @Cacheable作用在方法上，表示该方法的返回结果可以缓存。
 @EnableCaching
 public class RedisConfig extends CachingConfigurerSupport {
     @Bean
