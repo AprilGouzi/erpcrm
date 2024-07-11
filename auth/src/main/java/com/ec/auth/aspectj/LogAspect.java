@@ -39,6 +39,16 @@ public class LogAspect {
     //使用指定类初始化日志对象，在日志输出的时候，可以打印出日志信息所在类
     private static final Logger log = LoggerFactory.getLogger(LogAspect.class);
 
+    /**
+     * 业务逻辑方法的后面增加的功能
+     * value : 切入点表达式
+     * returning ：自定义的变量，表示目标方法的返回值
+     * @ After 在目标方法执行完成之后执行，无论该方法是否成功返回或抛出异常。
+     * @ AfterReturning 在目标方法成功执行并返回结果之后执行。
+     * @param joinPoint
+     * @param controllerLog
+     * @param jsonResult
+     */
     @AfterReturning(pointcut = "@annotation(controllerLog)",returning = "jsonResult")
     public void doAfterReturning(JoinPoint joinPoint, Log controllerLog,Object jsonResult){
         handleLog(joinPoint,controllerLog,null,jsonResult);
